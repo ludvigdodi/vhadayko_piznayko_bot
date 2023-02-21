@@ -1,6 +1,6 @@
 # @vhadayko_piznayko_bot
 
-The bot supports only the Ukrainian language!!!
+The bot supports ONLY the Ukrainian language!!!
 
 
 This Telegram bot helps you learn riddles and proverbs for children and adults.
