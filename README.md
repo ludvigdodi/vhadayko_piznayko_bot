@@ -2,7 +2,6 @@
 
 The bot supports ONLY the Ukrainian language!!!
 
-
 This Telegram bot helps you learn riddles and proverbs for children and adults.
 
 The principle of interaction with it is very simple: you need to send '1' or '0' and there will always be a new riddle or proverb.
