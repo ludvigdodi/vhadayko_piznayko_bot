@@ -1,8 +1,6 @@
 import telebot
-import requests
 import os
 import random
-import config
 from telebot import types
 from dotenv import load_dotenv
 import sqlite3 as sq
