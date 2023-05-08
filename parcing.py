@@ -22,32 +22,33 @@ from bs4 import BeautifulSoup as bs
 
 # # list_of_sentences = first_level_parser(url_1)
 
-# # Парсимо текст загадок
+# Парсимо текст загадок
 # url = 'https://np.pl.ua/2021/10/zahadky-dlia-ditey-100-zahadok-dlia-riznoho-viku/'
+url = 'https://vsviti.com.ua/interesting/society/57805'
 
 
-# def parser(url):
-#     req = requests.get(url)
-#     soup = bs(req.text, 'html.parser')
-#     zagadky_list = soup.find('div', class_="entry-content")
-#     zagadky = zagadky_list.find_all('li')
-#     return [c.text for c in zagadky]
+def parser(url):
+    req = requests.get(url)
+    soup = bs(req.text, 'html.parser')
+    zagadky_list = soup.find('div', class_="td-post-content")
+    zagadky = zagadky_list.find_all('p')
+    return [c.text for c in zagadky]
 
 
-# list_of_zagadky = parser(url)
-# random.shuffle(list_of_zagadky)
+list_of_zagadky = parser(url)
+random.shuffle(list_of_zagadky)
 
 
-# with sq.connect('sentences.db') as con:
-#     cur = con.cursor()
+with sq.connect('sentences.db') as con:
+    cur = con.cursor()
 
-#     # cur.execute("DROP TABLE sentences_2")
-#     cur.execute('''CREATE TABLE IF NOT EXISTS zahadky(
-#         sentence INTEGER
-#         )''')
-#     for s in list_of_zagadky:
-#         if s:
-#             cur.execute("INSERT INTO zahadky VALUES (?)", (s,))
+    # cur.execute("DROP TABLE sentences_2")
+    cur.execute('''CREATE TABLE IF NOT EXISTS zahadky(
+        sentence INTEGER
+        )''')
+    for s in list_of_zagadky:
+        if s:
+            cur.execute("INSERT INTO zahadky VALUES (?)", (s,))
 
 # cur.execute("SELECT * FROM users WHERE score < 1000 AND old IN(19, 32)")
 # result = cur.fetchall()
@@ -55,10 +56,10 @@ from bs4 import BeautifulSoup as bs
 
 # fatchmany(3) перші три записи
 # fetchone() - перша запись
-with sq.connect('sentences.db') as con:
-    cur = con.cursor()
+# with sq.connect('sentences.db') as con:
+#     cur = con.cursor()
 
-    sentences = cur.execute("SELECT * FROM  zahadky")
+#     sentences = cur.execute("SELECT * FROM  zahadky")
 
-for sentence in sentences:
-    print(sentence)
+# for sentence in sentences:
+#     print(sentence)
