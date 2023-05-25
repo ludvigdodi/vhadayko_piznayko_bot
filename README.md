@@ -1,4 +1,4 @@
-# @vhadayko_piznayko_bot
+# ** @vhadayko_piznayko_bot **
 
 The bot supports ONLY the Ukrainian language!!!
 
